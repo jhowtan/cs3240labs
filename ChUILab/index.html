@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="msapplication-tap-highlight" content="no">
+
+    <title>Movies</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/chui-ios-3.5.2.css">
+    <link rel="stylesheet" href="css/main.css">
+  </head>
+  <body class="center-block">
+      <nav id="header" class='current'>
+          <h1 class="header-title">Movies</h1>
+          <li class="fa fa-bars fa-2x" id="setting-icon" data-goto="settings"></li>
+      </nav>
+      <article id="main" class="current">
+        <section id="splash">
+          <div>
+            <img id="logo" src="img/sgMovie.png"><br><br>
+            <img src="img/sg50.png" style="width:60px;">
+              <h1 id="welcome">
+                SGMDB
+              </h1>
+              <p>Singapore Movie Database</p>
+              <p>#EverythingAlsoSG50</p>
+              <br><br>
+            <button class="btn-lg btn-default" id="proceed" data-goto="content">
+              Proceed <span class="fa fa-arrow-circle-right"></span>
+            </button>
+          </div>
+        </section>
+      </article>
+
+      <!-- SETTINGS PAGE -->
+      <nav id="header" class='next'>
+        <a class='button back'>Home</a>
+        <h1 class="header-title"><i class="fa fa-cogs"> Menu</i></h1>
+      </nav>
+      <article id="settings" class="next">
+          <section>
+            <div>
+              <h2>Night Mode</h2>
+              <span class="switch off">
+                <input type="checkbox" value="Night Mode">
+              </span>
+            </div><br>
+            <button class="btn-lg btn-default" id="logout">Logout <i class="fa fa-sign-out"></i></button>
+
+          </section>
+      </article>
+
+      <!-- CONTENT PAGE -->
+      <nav id="header" class='next'>
+        <li class="fa fa-bars fa-2x" id="setting-icon" data-goto="settings"></li>
+        <h1 class="header-title">Local Films</h1>
+      </nav>
+      <article id="content" class="next">
+          <section>
+            <!-- Featured Design -->
+                <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                <!-- Indicators -->
+                    <ol class="carousel-indicators">
+                        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                    </ol>
+
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner" role="listbox" id="goto-movie">
+                        <div class="item active">
+                            <li class='nav' data-id="0">
+                                <img src="img/movie1.jpg">
+                            </li>
+                            <div class="carousel-caption">
+                                Ilo Ilo - Anthony Chan
+                            </div>
+                        </div>
+                        <div class="item">
+                            <li class='nav' data-id="1">
+                                <img src="img/movie2.jpg">
+                            </li>
+                            <div class="carousel-caption">
+                                That Girl in Pinafore - Chia Yee Wai
+                            </div>
+                        </div>
+                        <div class="item">
+                            <li class='nav' data-id="2">
+                                <img src="img/movie3.jpg">
+                            </li>
+                            <div class="carousel-caption">
+                                881 - Royston Tan
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Categories -->
+                <div class="row">
+                    <div class="col-xs-12" id="cat-comedy">
+                      <div class="overlay"></div>
+                      <h1 id="cat-title">Comedy</h1>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12" id="cat-drama">
+                        <div class="overlay"></div>
+                        <h1 id="cat-title">Drama</h1>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12" id="cat-indie">
+                        <div class="overlay"></div>
+                        <h1 id="cat-title">Independent</h1>
+                    </div>
+                </div>
+          </section>
+      </article>
+
+      <!-- MOVIE DETAILS PAGE -->
+      <nav id="header" class='next'>
+        <a class='button back'>Back</a>
+        <h1 class="header-title" id="movie-title"></h1>
+      </nav>
+      <article id="movie" class="next">
+          <section>
+            <div id="header-image"></div>
+            <div id="plot">
+              <h2>Movie Info</h2>
+              <p id="description"></p>
+              <h3>Rating <i class="inline-block" id="rating"></i></h3>
+              <h3>Genre <i class="inline-block" id="genre"></i></h3>
+              <h3>Directed By <i class="inline-block" id="direct"></i></h3>
+              <h3>Written By <i class="inline-block" id="written"></i></h3>
+              <h3>In Theatres <i class="inline-block" id="showing"></i></h3>
+              <h3>Runtime <i class="inline-block" id="runtime"></i></h3>
+              <h3>Average Rating <i class="inline-block" id="avgRating"></i></h3>
+            </div>
+            <div id="comment-container">
+              <h2>User Reviews</h2>
+              <ul id="reviews">
+              </ul>
+            <div id="new-review">
+              <ul class='list' id='review-name' ui-implements='form'>
+                <li><input id="name-box" type="text" placeholder="Name" required></li>
+              </ul>
+              <ul class='list' id='comment-text' ui-implements='form'>
+                <li><textarea id="comment-box" placeholder="Leave a review" rows="4" required></textarea></li>
+              </ul>
+              <ul class='list' ui-implements='form'>
+                <li>
+                  <div>
+                    <label>Rating: <span id='rangeValue'></span></label>
+                    <input type="range" id="score" value="3" min="0" max="5">
+                  </div>
+                </li>
+              </ul>
+              <button class="btn pull-right" id="send">Submit</button>
+            </div>
+            </div>
+          </section>
+      </article>
+
+    <script src="js/jquery-2.0.3.js"></script>
+    <script src="js/chui-3.5.2.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="js/movies.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
